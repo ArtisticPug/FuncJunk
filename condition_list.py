@@ -28,7 +28,7 @@ def count_func(list):  # Функция принимает список слов
         meta_result = append_func(el, rest_list)  # Вызывает функцию, которая и производит сравнение
         if meta_result > count:
             count = meta_result
-    return count
+    return count  # Возвращает кол-во "одновременных" событий в формате INT
 
 
 list = [

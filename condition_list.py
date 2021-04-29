@@ -3,7 +3,7 @@
 
 """
 
-def append_func(item1, list):
+def append_func(item1, list):  # Сравнивает список значений с первоначальным
     compare_list = []
     compare_list.append(item1)
     for el in list:
@@ -11,21 +11,21 @@ def append_func(item1, list):
             append = True
         else:
             return len(compare_list)
-        for item in compare_list:
-            if el['start'] < item['end']:
+        for item in compare_list:  # А так же с значениями, что удовлетворяли первому сравнению
+            if el['start'] < item['end']:  # Для того, чтобы найти "одновременные" события
                 pass
             else:
                 append = False
         if append:
-            compare_list.append(el)
-    return len(compare_list)
+            compare_list.append(el)  # Удовлетворяющие условию записи добавляются в список
+    return len(compare_list)  # Длину которого, в итоге возвращает функция
 
 
-def count_func(list):
+def count_func(list):  # Функция принимает список словарей вида [{'start': *дата_начала*, 'end': *дата_окончания*}]
     count = 0
-    for el in list:
+    for el in list:  # Итерирует полученный список, сравнивая поочередно значения
         rest_list = list[(list.index(el)+1):]
-        meta_result = append_func(el, rest_list)
+        meta_result = append_func(el, rest_list)  # Вызывает функцию, которая и производит сравнение
         if meta_result > count:
             count = meta_result
     return count
